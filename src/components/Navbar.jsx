@@ -4,7 +4,6 @@ function Navbar() {
   return (
     <nav style={{ padding: '20px', background: '#eee' }}>
       <ul style={{listStyle: 'none', display: 'flex', gap: '15px'}}>
-        <li><Link to="/">Home</Link></li>
         <li><Link to="/description">Description</Link></li>
         <li><Link to="/logbook">Logbook</Link></li>
         <li><Link to="/flow">Flow</Link></li>

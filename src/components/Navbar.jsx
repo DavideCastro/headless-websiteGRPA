@@ -11,6 +11,7 @@ function Navbar() {
         <li><Link to="/mockup">Mockup</Link></li>
         <li><Link to="/model">Model</Link></li>
         <li><Link to="/game">Play Game</Link></li>
+        <li><Link to="/rules">Rules</Link></li>
       </ul>
     </nav>
   );

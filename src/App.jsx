@@ -7,6 +7,7 @@ import Flow from './pages/Flow';
 import Mockup from './pages/Mockup';
 import Model from './pages/Model';
 import Game from "./pages/Game.jsx";
+import Rules from './pages/Rules';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/flow" element={<Flow />} />
                 <Route path="/mockup" element={<Mockup />} />
                 <Route path="/model" element={<Model />} />
+                <Route path="/rules" element={<Rules />} />
                 <Route path="/game" element={<Game />} />
             </Routes>
         </>

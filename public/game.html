@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lost in the Dark</title>
+  <link rel="stylesheet" href="ressources/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+</head>
+<body class="game-screen">
+
+  <div id="game-container">
+  <!-- MENU -->
+  <div id="main-menu">
+    <div class="menu-content">
+      <h1 id="game-title">Lost in the Dark</h1>
+      <img src="ressources/images/maquettes/personnage.png" id="character" alt="Character">
+  
+      <div class="username-wrapper">
+        <input type="text" id="usernameInput" placeholder="Enter your username" />
+      </div>
+  
+      <img src="ressources/buttons/play.png" id="playBtn" class="menu-btn play-inline" alt="Play">
+    </div>
+  
+
+    <img src="ressources/buttons/help.png" id="helpBtn" class="menu-btn bottom-right" alt="Help">
+    <img src="ressources/buttons/switch.png" id="switchBtn" class="menu-btn top-left" alt="Switch">
+    <img src="ressources/buttons/score.png" id="scoreBtn" class="menu-btn top-right" alt="Score">
+    <img src="ressources/buttons/location.png" id="geoBtn" class="menu-btn bottom-left" alt="Location">
+  </div>
+  
+  <div id="leaderboard-container" style="display:none;">
+    <div class="leaderboard-box">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboard-list"></ul>
+        <button id="resetLeaderboard">Reset Leaderboard</button>
+        <button id="closeLeaderboard">Close</button>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- HELP SCREEN -->
+  <div id="help-screen" class="overlay-screen" style="display: none;">
+    <div class="help-box">
+      <h2>How to Play</h2>
+      <p>
+        Welcome to <strong>Lost in the Dark</strong>, a maze exploration game where danger lurks in the shadows.  
+        Your goal is to find the exit while avoiding enemies and managing your light source.
+      </p>
+      
+      <h3>Controls</h3>
+      <ul style="text-align: left;">
+        <li>Use the <strong>arrow keys</strong> to move your character.</li>
+      </ul>
+  
+      <h3>Objectives</h3>
+      <ul style="text-align: left;">
+        <li>Explore the maze and locate the exit.</li>
+        <li>Collect batteries to keep your flashlight active.</li>
+        <li>Avoid ghosts - getting caught means game over!</li>
+      </ul>
+  
+      <h3>Tips</h3>
+      <ul style="text-align: left;">
+        <li>Stay alert - some enemies follow unpredictable paths.</li>
+        <li>Don't rush - sometimes waiting is safer than charging ahead.</li>
+        <li>Listen carefully — sound cues can help you detect danger.</li>
+      </ul>
+  
+      <button id="backFromHelp">Back</button>
+    </div>
+  </div>
+  
+
+  <!-- DRAG & DROP SCREEN FOR CHARACTER SWITCH -->
+  <div id="drop-area" class="overlay-screen" style="display: none;">
+    <div class="drop-box">
+      <h2>Drop your image here</h2>
+      <p>(.png format recommended, 64x64px)</p>
+      <div id="drop-zone">Drag and drop your image here</div>
+      <button id="resetCharacter">Reset</button>
+      <button id="backFromDrop">Back</button>
+    </div>
+  </div>  
+
+  <script type="module" src="ressources/js/menu.js"></script>
+  <script type="module" src="ressources/js/geolocation.js"></script>
+  <script type="module" src="ressources/js/dragAndDrop.js"></script>
+  <script type="module" src="ressources/js/leaderboard.js"></script>
+
+</body>
+</html>

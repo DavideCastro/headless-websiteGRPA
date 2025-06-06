@@ -1,0 +1,773 @@
+/* 
+====================
+Global Variables
+====================
+*/
+:root {
+    --header-min-height: 20vh;
+    --header-max-height: 20%;
+    --main-min-height: 70vh;
+    --footer-min-height: 10vh;
+    --footer-max-height: 10%;
+    --padding: 20px;
+    --font-color: black;
+    --font-color-active: rgb(0, 191, 255);
+    --background-color: rgba(211, 211, 211, 1);
+    --white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --grey: grey;
+    --light-grey: #C4C4C4;
+}
+
+/* 
+====================
+Import Google Fonts
+====================
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
+
+/* 
+====================
+General Reset
+====================
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+
+/* 
+====================
+Body Styling
+====================
+*/
+body {
+    line-height: 1.6;
+    color: var(--font-color);
+    background-color: var(--background-color);
+}
+
+/* 
+====================
+Header Styling
+====================
+*/
+body > header {
+    position: relative;
+    width: 100%;
+    min-height: var(--header-min-height);
+    max-height: var(--header-max-height);
+    background: url('../images/background.jpg') no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--white);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                 0 0 20px rgba(255, 255, 255, 0.6),
+                 0 0 30px rgba(255, 255, 255, 0.4);
+    text-align: left;
+    align-self: flex-start;
+    padding: var(--padding);
+}
+
+/* 
+====================
+Navigation Styling
+====================
+*/
+nav {
+    width: 100%;
+    background: var(--background-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    flex-direction: row;
+    gap: 20px;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--font-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li.active {
+    background-color: var(--white);
+}
+
+nav ul li.active a,
+nav ul li a:hover {
+    color: var(--font-color-active);
+    text-decoration: underline;
+}
+
+/* 
+=========================
+Hamburger Menu Styling
+=========================
+*/
+.hamburger {
+    display: none;
+}
+
+/* Ensure navigation is vertical only in mobile mode */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 0;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 
+=========================
+Main Content Styling
+=========================
+*/
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: var(--white);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    min-height: var(--main-min-height);
+}
+
+main > section {
+    flex: 1;
+    padding: var(--padding);
+}
+
+main header {
+    margin-bottom: 20px;
+}
+
+main header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--font-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+main header p {
+    color: var(--grey);
+    font-style: italic;
+    text-align: right;
+    margin-top: -10px;
+    font-size: 0.9rem;
+}
+
+main p strong {
+    font-weight: bold;
+    color: var(--font-color);
+}
+
+main a {
+    color: var(--font-color-active);
+    text-decoration: none;
+}
+
+main a:hover {
+    text-decoration: underline;
+}
+
+/* 
+====================
+Article Styling
+====================
+*/
+main section#articles article > *:not(header, table) {
+    margin-left: 20px; 
+}
+
+main section#articles article ul,
+main section#articles article ol {
+    margin-left: 80px; 
+    list-style-position: outside; 
+}
+
+main section#articles article h3, h4 {
+    margin-top: 20px; 
+}
+
+main section#articles article header {
+    margin-left: 0; 
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.articleImage {
+    width: 100%;
+    max-width: 640px;
+}
+
+@media (max-width: 768px) {
+    main section#articles article > *:not(header, table) {
+        margin-left: 0; /* Remove left margin on mobile */
+    }
+
+    main section#articles article > ul,
+    main section#articles article > ol {
+        margin-left: 20px;
+    }
+}
+
+/* 
+====================
+Aside Styling
+====================
+*/
+aside {
+    background-color: var(--white);
+    border: 1px solid var(--light-grey);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    padding: var(--padding);
+    max-width: 300px;
+    flex-shrink: 0;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+aside div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+aside h3 {
+    background-color: rgb(80, 170, 255);
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    margin: -20px -20px 10px -20px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside ul li {
+    font-size: 0.9rem;
+    color: var(--font-color);
+    line-height: 1.4;
+}
+
+/* Mobile layout for main content */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main > section {
+        width: 100%;
+    }
+
+    aside {
+        margin: 0 0 20px 0; /* Adjust margin to center it below the section */
+        max-width: 100%; /* Allow aside to take full width if needed */
+    }
+}
+
+/* 
+====================
+Footer Styling
+====================
+*/
+footer {
+    background: var(--light-grey);
+    min-height: var(--footer-min-height);
+    max-height: var(--footer-max-height);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+footer img {
+    height: 50px;
+}
+
+/* 
+====================
+Table Styling
+====================
+*/
+table.table {
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+table.table tbody tr:nth-child(even) {
+    background-color: #eaeaea; /* Slightly darker grey for even rows */
+}
+
+table.table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+}
+
+table.table tbody tr:hover {
+    background-color: #d6d6d6; /* Slightly darker grey for hover effect */
+}
+
+table.table thead {
+    background-color: var(--light-grey);
+    font-weight: bold;
+}
+
+table.table th,
+table.table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-grey);
+}
+
+@media (max-width: 400px) {
+    .table-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile devices */
+    }
+
+    table.table {
+        width: 100%; /* Ensure the table takes full width */
+        min-width: 400px; /* Maintain the table's minimum width */
+    }
+}
+
+/* 
+====================
+Game Menu Styling
+====================
+*/
+
+#game-container {
+    background-image: url("../images/maquettes/base.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    width: 90vw;
+    max-width: 1024px;
+    aspect-ratio: 4 / 3;
+    height : auto;
+    margin: 0 auto;
+    border: 2px solid black;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow : hidden;
+}
+
+#game-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#game-title {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow:
+    2px 2px 0 #5e4634,
+    -2px -2px 0 #5e4634;    
+    font-family: 'MedievalSharp', cursive;
+    letter-spacing: 2px;
+    z-index: 2;
+    user-select: none;
+    pointer-events: none;
+}
+
+#main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .username-wrapper {
+    margin: 10px 0;
+  }
+  
+  #usernameInput {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid #333;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 16px;
+    background-color: #eee;
+    outline: none;
+    width: 200px;
+    text-align: center;
+  }  
+
+  #main-menu img#character {
+    height: 140px;
+    margin-top: 20px;
+  }
+  
+
+.menu-btn {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.play-inline {
+    position: static;
+    width: 90px;
+    height: 90px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+.center-btn {
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 90px;
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Optional: rounded edges */
+}
+
+body.game-active {
+    display: flex;
+    background-color: #000;
+    height: 100vh;
+}
+
+body.game-screen {
+    background-color: white;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+  
+
+/* HELP SCREEN */
+.overlay-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.95);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    text-align: center;
+}
+
+.help-box {
+    max-width: 400px;
+    padding: 30px;
+    background: #222;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+}
+
+.help-box h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.help-box p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.help-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.help-box button:hover {
+    background: #f0f0f0;
+}
+
+.drop-box {
+    max-width: 400px;
+    padding: 30px;
+    background: #222;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    text-align: center;
+}
+
+#drop-zone {
+    border: 2px dashed #aaa;
+    padding: 40px;
+    margin-top: 20px;
+    background-color: #333;
+    color: #ccc;
+    cursor: pointer;
+}
+
+#drop-zone.dragover {
+    border-color: #0ff;
+    background-color: #444;
+}
+
+.drop-box button {
+    margin: 10px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#back-to-menu-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+  cursor: pointer;
+  z-index: 100;
+  transition: transform 0.2s ease;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'MedievalSharp', cursive;
+}
+
+#back-to-menu-btn::after {
+  content: "←"; /* Left arrow as a placeholder if you don't have an image */
+}
+
+#back-to-menu-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+/* Leaderboard overlay */
+#leaderboard-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  /* Leaderboard box */
+  .leaderboard-box {
+    background: #222;
+    border: 3px solid #ccc;
+    padding: 30px 40px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    font-family: 'MedievalSharp', cursive;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  .leaderboard-box h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  #leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+  }
+  
+  #leaderboard-list li {
+    margin: 8px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #leaderboard-list img {
+    border-radius: 50%;
+    border: 1px solid #aaa;
+  }
+  
+  /* Close button */
+  #closeLeaderboard {
+    padding: 8px 16px;
+    background: #555;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+  }
+  
+  #closeLeaderboard:hover {
+    background: #777;
+  }
+  
+  .leaderboard-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+#resetLeaderboard {
+  padding: 8px 16px;
+  background: #b33;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+#resetLeaderboard:hover {
+  background: #d44;
+}
+
+
+/* Animation for the congratulations title */
+@keyframes glowing {
+    0% { text-shadow: 0 0 5px #FFD700; }
+    50% { text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700; }
+    100% { text-shadow: 0 0 5px #FFD700; }
+  }
+  
+  #game-complete-overlay h1 {
+    animation: glowing 2s infinite;
+  }
+  
+  /* Custom scrollbar for leaderboard */
+  #completion-leaderboard::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #completion-leaderboard::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  
+  #completion-leaderboard::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.5);
+    border-radius: 4px;
+  }
+  
+  /* Button hover effects */
+  #game-complete-overlay button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+  }

@@ -1,28 +1,27 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
-import Description from './pages/Description';
-import Logbook from './pages/Logbook';
-import Flow from './pages/Flow';
-import Mockup from './pages/Mockup';
-import Model from './pages/Model';
+import DynamicPage from './pages/DynamicPage';
 import Game from "./pages/Game.jsx";
-import Rules from './pages/Rules';
+import './App.css';
 
 function App() {
     return (
-        <>
-            <Navbar />
+        <div className="app-container">
+            <header>
+                <h1>Lost in the Dark</h1>
+                <Navbar />
+            </header>
+
             <Routes>
-                <Route path="/description" element={<Description />} />
-                <Route path="/logbook" element={<Logbook />} />
-                <Route path="/flow" element={<Flow />} />
-                <Route path="/mockup" element={<Mockup />} />
-                <Route path="/model" element={<Model />} />
-                <Route path="/rules" element={<Rules />} />
+                <Route path="/" element={<Navigate to="/description" replace />} />
                 <Route path="/game" element={<Game />} />
+                <Route path="/:slug" element={<DynamicPage />} />
             </Routes>
-        </>
+
+            <footer>
+                <img src="/headless-websiteGRPA/ressources/images/logo.png" alt="HES-SO Logo" />
+            </footer>
+        </div>
     );
 }
-
 export default App;

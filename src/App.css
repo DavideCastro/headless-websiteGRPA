@@ -1,42 +1,363 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* 
+====================
+Global Variables
+====================
+*/
+:root {
+  --header-min-height: 20vh;
+  --header-max-height: 20%;
+  --main-min-height: 70vh;
+  --footer-min-height: 10vh;
+  --footer-max-height: 10%;
+  --padding: 20px;
+  --font-color: black;
+  --font-color-active: rgb(0, 191, 255);
+  --background-color: rgba(211, 211, 211, 1);
+  --white: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --grey: grey;
+  --light-grey: #C4C4C4;
+}
+
+/*
+====================
+Import Google Fonts
+====================
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,400,400i,700|Roboto+Slab:700');
+
+/*
+====================
+General Reset
+====================
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*
+====================
+Body and App Container
+====================
+*/
+body {
+  font-family: Montserrat, sans-serif;
+  line-height: 1.6;
+  color: var(--font-color);
+  background-color: var(--background-color);
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+====================
+Header Styling
+====================
+*/
+.app-container > header {
+  position: relative;
+  width: 100%;
+  min-height: var(--header-min-height);
+  background: url('/headless-websiteGRPA/ressources/images/background.jpg') no-repeat center center / cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--white);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+  0 0 20px rgba(255, 255, 255, 0.6),
+  0 0 30px rgba(255, 255, 255, 0.4);
+  text-align: left;
+  align-self: flex-start;
+  padding: var(--padding);
+  margin: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/*
+====================
+Navigation Styling
+====================
+*/
+nav {
+  width: 100%;
+  background: var(--background-color);
+  padding: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  flex-direction: row;
+  gap: 20px;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--font-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li.active {
+  background-color: var(--white);
+}
+
+nav ul li.active a,
+nav ul li a:hover {
+  color: var(--font-color-active);
+  text-decoration: underline;
+}
+
+/*
+=========================
+Main Content Styling
+=========================
+*/
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--white);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  min-height: var(--main-min-height);
+  flex: 1;
+}
+
+main > section {
+  flex: 1;
+  padding: var(--padding);
+}
+
+main header {
+  margin-bottom: 20px;
+}
+
+main header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--font-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+main header p {
+  color: var(--grey);
+  font-style: italic;
+  text-align: right;
+  margin-top: -10px;
+  font-size: 0.9rem;
+}
+
+main p {
+  margin-bottom: 20px;
+}
+
+main p strong {
+  font-weight: bold;
+  color: var(--font-color);
+}
+
+main a {
+  color: var(--font-color-active);
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+/*
+====================
+Article Styling
+====================
+*/
+main section#articles article > *:not(header, table) {
+  margin-left: 20px;
+}
+
+main section#articles article ul,
+main section#articles article ol {
+  margin-left: 80px;
+  list-style-position: outside;
+}
+
+main section#articles article h3,
+main section#articles article h4 {
+  margin-top: 20px;
+}
+
+main section#articles article header {
+  margin-left: 0;
+}
+
+.articleImage {
+  width: 100%;
+  max-width: 640px;
+}
+
+/*
+====================
+Page Content (pour les pages WordPress)
+====================
+*/
+.page-content {
+  padding: var(--padding);
+  background-color: var(--white);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  min-height: var(--main-min-height);
+  flex: 1;
+}
+
+/*
+====================
+Footer Styling
+====================
+*/
+footer {
+  background: var(--light-grey);
+  min-height: var(--footer-min-height);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+  margin-top: auto;
+}
+
+footer img {
+  height: 50px;
+}
+
+/*
+====================
+Table Styling
+====================
+*/
+table.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.table tbody tr:nth-child(even) {
+  background-color: #eaeaea;
+}
+
+table.table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+table.table tbody tr:hover {
+  background-color: #d6d6d6;
+}
+
+table.table thead {
+  background-color: var(--light-grey);
+  font-weight: bold;
+}
+
+table.table th,
+table.table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+/*
+====================
+Loading Spinner
+====================
+*/
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid var(--font-color-active);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*
+====================
+Responsive Design
+====================
+*/
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main > section {
+    width: 100%;
+  }
+
+  main section#articles article > *:not(header, table) {
+    margin-left: 0;
+  }
+
+  main section#articles article > ul,
+  main section#articles article > ol {
+    margin-left: 20px;
+  }
+
+  .app-container header h1 {
+    font-size: 2rem;
+    text-align: center;
+    align-self: center;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 400px) {
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  table.table {
+    width: 100%;
+    min-width: 400px;
+  }
 }
